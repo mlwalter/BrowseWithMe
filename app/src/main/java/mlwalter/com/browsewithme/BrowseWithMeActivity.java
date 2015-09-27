@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.provider.BaseColumns;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Pair;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -37,6 +39,7 @@ public class BrowseWithMeActivity extends AppCompatActivity {
 				count++;
 			}
 			TextView tv = (TextView) findViewById(R.id.textView8);
+			setTvClickListener(tv);
 			tv.setText(pairs[0].first + ": " + pairs[0].second);
 			tv = (TextView) findViewById(R.id.textView9);
 			tv.setText(pairs[1].first + ": " + pairs[1].second);
@@ -45,6 +48,16 @@ public class BrowseWithMeActivity extends AppCompatActivity {
 //			startService(getIntent().<Intent>getParcelableExtra("SEND_MESSAGE").setAction(title + ": " + url));
 //			finish();
 		}
+
+	}
+
+	private void setTvClickListener(View v){
+		((TextView)v).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(BrowseWithMeActivity.this,"Hello",Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 
 	public static class BookmarkColumns implements BaseColumns {
